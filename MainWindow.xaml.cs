@@ -22,6 +22,8 @@ namespace ProgressivePercussion
    {
       public MainWindow()
       {
+         ExerciseGenerator exerciseGenerator = new ExerciseGenerator();
+
          InitializeComponent();
       }
    }

@@ -6,9 +6,22 @@ namespace ProgressivePercussion
 {
    public class ExerciseGenerator : IExerciseGenerator
    {
+      private IExercise _exercise;
+
+      public ExerciseGenerator()
+      {
+         _exercise = GenerateExercise();
+      }
+
       public Exercise GenerateExercise()
       {
-         throw new NotImplementedException();
+         Rudiment rudiment = new Rudiment("RLRL", "Basics", 8, 100);
+
+         Exercise exercise = new Exercise(new List<IRudiment> { rudiment }, "Beginner Warm Up!");
+
+         return exercise;
       }
+
+      public string ExerciseName => _exercise.ExerciseName;
    }
 }

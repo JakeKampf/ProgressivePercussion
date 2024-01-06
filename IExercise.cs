@@ -6,6 +6,7 @@ namespace ProgressivePercussion
 {
    public interface IExercise
    {
+      public string ExerciseName { get; }
       public List<IRudiment> RudimentCollection { get; }
    }
 }
