@@ -8,7 +8,5 @@ namespace ProgressivePercussion
    {
       string StickingPattern { get; }
       string TargetSkill { get; }
-      int NumberOfMeasures { get; }
-      int Tempo { get; }
    }
 }

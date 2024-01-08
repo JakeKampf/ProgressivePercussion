@@ -3,13 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProgressivePercussion"
+        xmlns:local="clr-namespace:ProgressivePercussion.ViewModels"
         mc:Ignorable="d"
-        Title="Progressive Percussion" Height="450" Width="800">
+        Title="Progressive Percussion" Height="600" Width="800">
    <Window.DataContext>
-      <local:ExerciseGenerator/>
+      <local:MainWindowViewModel/>
    </Window.DataContext>
     <Grid>
-      <TextBlock Text="{Binding ExerciseName}"/>
+      <TextBlock Text="{Binding ExerciseTempo}"/>
+      <TextBlock Text="{Binding ExerciseTempo}"/>
+      <TextBlock Text="{Binding NumberOfMeasures}"/>
    </Grid>
 </Window>
