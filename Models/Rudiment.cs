@@ -10,6 +10,10 @@ namespace ProgressivePercussion
       private string _targetSkill;
       private ImageSource _rudimentImage;
 
+      public Rudiment()
+      {
+      }
+
       public Rudiment( string rudimentName, string targetSkill, ImageSource rudimentImage )
       {
          _rudimentName = rudimentName ?? throw new ArgumentNullException( nameof( rudimentName ) );

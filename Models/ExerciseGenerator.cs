@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgressivePercussion.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -8,36 +9,21 @@ namespace ProgressivePercussion
 {
    public class ExerciseGenerator : IExerciseGenerator
    {
+      private IRudimentReader _rudimentReader;
 
-      public ExerciseGenerator()
+      public ExerciseGenerator( IRudimentReader rudimentReader )
       {
+         _rudimentReader = rudimentReader ?? throw new ArgumentNullException(nameof( rudimentReader ));
       }
 
       public Exercise GenerateExercise()
       {
-         Image myImage3 = new Image();
-         BitmapImage bi3 = new BitmapImage();
-         bi3.BeginInit();
-         bi3.UriSource = new Uri("C://Users//jacob//source//repos//ProgressivePercussion//Resources//Rudiments//BeginnerRudiments//SingleStrokeRoll//SingleStrokeRoll.jpeg", UriKind.Relative);
-         bi3.EndInit();
-         myImage3.Stretch = Stretch.Fill;
-         myImage3.Source = bi3;
+         List<IRudiment> rudiments = _rudimentReader.ReadInRudiments();
 
-         Image myImage = new Image();
-         BitmapImage bi = new BitmapImage();
-         bi.BeginInit();
-         bi.UriSource = new Uri("C://Users//jacob//source//repos//ProgressivePercussion//Resources//Rudiments//BeginnerRudiments//MultipleBounceRoll//MultipleBounceRoll.jpeg", UriKind.Relative);
-         bi.EndInit();
-         myImage.Stretch = Stretch.Fill;
-         myImage.Source = bi;
-
-         Rudiment rudiment = new Rudiment( "Single Stroke Roll", "Basics", myImage3.Source);
-         Rudiment rudiment2 = new Rudiment("Multiple Bounce Roll", "Basics", myImage.Source);
-
-         Exercise exercise = new Exercise(new List<IRudiment> { rudiment, rudiment2 }, "Beginner Warm Up!", 120, 8);
-         
+         Exercise exercise = new Exercise( rudiments, "Beginner Rudiments!", 120, 8);
 
          return exercise;
       }
+
    }
 }

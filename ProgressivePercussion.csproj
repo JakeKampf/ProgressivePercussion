@@ -7,11 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\SingleStrokeRoll.jpeg" />
+    <Compile Remove="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\**" />
+    <EmbeddedResource Remove="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\**" />
+    <None Remove="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\**" />
+    <Page Remove="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\SingleStrokeRoll.jpeg" />
+    <None Remove="Resources\Rudiments\BeginnerRudiments\Double Stroke Roll\Double Stroke Roll.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Rudiments\BeginnerRudiments\Double Stroke Roll\Double Stroke Roll.jpeg" />
   </ItemGroup>
 
 </Project>

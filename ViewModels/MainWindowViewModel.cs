@@ -1,5 +1,6 @@
 ﻿
 using ProgressivePercussion.Commands;
+using ProgressivePercussion.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -17,7 +18,7 @@ namespace ProgressivePercussion.ViewModels
 
       public MainWindowViewModel()
       {
-         _exerciseGenerator = new ExerciseGenerator();
+         _exerciseGenerator = new ExerciseGenerator( new RudimentReader() );
          _exercise = _exerciseGenerator.GenerateExercise();
 
          _currentRudimentImage = _exercise.RudimentCollection[_exerciseIndex].RudimentImage.ToString();
@@ -49,7 +50,7 @@ namespace ProgressivePercussion.ViewModels
       private string _currentRudimentName;
       public string CurrentRudimentName
       {
-         get => _currentRudimentName;
+         get =>_currentRudimentName;
          set
          {
             if (_currentRudimentName != value)
@@ -64,19 +65,19 @@ namespace ProgressivePercussion.ViewModels
       private void ExecutePreviousExerciseCommand(object parameter)
       {
          _exerciseIndex--;
-         _currentRudimentName = _exercise.RudimentCollection[_exerciseIndex].RudimentName;
-         _currentRudimentImage = _exercise.RudimentCollection[_exerciseIndex].RudimentImage.ToString();
+         CurrentRudimentName = _exercise.RudimentCollection[_exerciseIndex].RudimentName;
+         CurrentRudimentImage = _exercise.RudimentCollection[_exerciseIndex].RudimentImage.ToString();
       }
 
       public ICommand NextExerciseCommand { get; }
       private void ExecuteNextExerciseCommand( object parameter )
       {
          _exerciseIndex++;
-         _currentRudimentName = _exercise.RudimentCollection[_exerciseIndex].RudimentName;
-         _currentRudimentImage = _exercise.RudimentCollection[_exerciseIndex].RudimentImage.ToString();
+         CurrentRudimentName = _exercise.RudimentCollection[_exerciseIndex].RudimentName;
+         CurrentRudimentImage = _exercise.RudimentCollection[_exerciseIndex].RudimentImage.ToString();
       }
 
-      private bool CanExecuteNextExerciseCommand( object parameter ) => _exerciseIndex < _exercise.RudimentCollection.Count;
+      private bool CanExecuteNextExerciseCommand( object parameter ) => _exerciseIndex < _exercise.RudimentCollection.Count-1;
       private bool CanExecutePreviousExerciseCommand(object parameter) => _exerciseIndex > 0;
 
       protected void OnPropertyChanged([CallerMemberName] string name = null)
