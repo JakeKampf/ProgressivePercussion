@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Remove="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\SingleStrokeRoll.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\SingleStrokeRoll.jpeg" />
   </ItemGroup>
 
 </Project>

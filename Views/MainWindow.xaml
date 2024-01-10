@@ -9,9 +9,116 @@
    <Window.DataContext>
       <local:MainWindowViewModel/>
    </Window.DataContext>
-    <Grid>
-      <TextBlock Text="{Binding ExerciseTempo}"/>
-      <TextBlock Text="{Binding ExerciseTempo}"/>
-      <TextBlock Text="{Binding NumberOfMeasures}"/>
+   <Window.Resources>
+      <!-- Style for the Complementary Button -->
+      <Style x:Key="InfoButtonStyle" TargetType="Button">
+         <Setter Property="Background" Value="#3E637F"/>
+         <Setter Property="Foreground" Value="White"/>
+         <Setter Property="BorderThickness" Value="2"/>
+         <Setter Property="BorderBrush" Value="#29465B"/>
+         <Setter Property="Padding" Value="10"/>
+         <Setter Property="FontSize" Value="15"/>
+         <Setter Property="FontFamily" Value="Segoe UI"/>
+         <Setter Property="Template">
+            <Setter.Value>
+               <ControlTemplate TargetType="Button">
+                  <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                  </Border>
+               </ControlTemplate>
+            </Setter.Value>
+         </Setter>
+         <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+               <Setter Property="Background" Value="#29465B"/>
+            </Trigger>
+         </Style.Triggers>
+      </Style>
+      <Style x:Key="LeftChevronButtonStyle"  
+             TargetType="Button">
+         <Setter Property="Width" Value="30"/>
+         <Setter Property="Height" Value="30"/>
+         <Setter Property="Template">
+            <Setter.Value>
+               <ControlTemplate TargetType="Button">
+                  <Grid x:Name="ChevronGrid">
+                     <Path x:Name="Chevron" Data="M30,0 L15,15 L30,30 L0,15 L30,0" Fill="Gray" Stretch="Fill"/>
+                  </Grid>
+                  <ControlTemplate.Triggers>
+                     <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="Chevron" Property="Fill" Value="White"/>
+                     </Trigger>
+                  </ControlTemplate.Triggers>
+               </ControlTemplate>
+            </Setter.Value>
+         </Setter>
+      </Style>
+      <Style x:Key="RightChevronButtonStyle" TargetType="Button">
+         <Setter Property="Width" Value="30"/>
+         <Setter Property="Height" Value="30"/>
+         <Setter Property="Template">
+            <Setter.Value>
+               <ControlTemplate TargetType="Button">
+                  <Grid x:Name="ChevronGrid">
+                     <Path x:Name="Chevron" Data="M0,0 L15,15 L0,30 L30,15 L0,0" Fill="Gray" Stretch="Fill"/>
+                  </Grid>
+                  <ControlTemplate.Triggers>
+                     <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="Chevron" Property="Fill" Value="White"/>
+                     </Trigger>
+                  </ControlTemplate.Triggers>
+               </ControlTemplate>
+            </Setter.Value>
+         </Setter>
+      </Style>
+   </Window.Resources>
+   <Grid>
+      <Grid.Background>
+         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#192841" Offset="0"/>
+            <GradientStop Color="#0F1722" Offset="1"/>
+         </LinearGradientBrush>
+      </Grid.Background>
+      <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+         <Button Content="{Binding ExerciseName}" 
+                    Style="{StaticResource InfoButtonStyle}"/>
+         <Button Content="{Binding ExerciseTempo}"
+                    Style="{StaticResource InfoButtonStyle}"/>
+         <Button Content="{Binding NumberOfMeasures}"
+                    Style="{StaticResource InfoButtonStyle}"/>
+      </StackPanel>
+      <Grid>
+         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+         </Grid.ColumnDefinitions>
+         <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+         </Grid.RowDefinitions>
+         <TextBlock Text="{Binding CurrentRudimentName, Mode=TwoWay}"
+                    Grid.Column="1"
+                    FontSize="20"
+                    FontFamily="Segoe UI"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"/>
+         <Button Style="{StaticResource LeftChevronButtonStyle}"
+                 Command="{Binding PreviousExerciseCommand}"
+                 Grid.Row="1"/>
+         <Image Source="{Binding CurrentRudimentImage, Mode=TwoWay}"
+                Grid.Column="1"
+                Grid.Row="1"/>
+         <Button Style="{StaticResource RightChevronButtonStyle}"
+                 Command="{Binding NextExerciseCommand}"
+                 Grid.Column="2"
+                 Grid.Row="1"/>
+      </Grid>
    </Grid>
 </Window>

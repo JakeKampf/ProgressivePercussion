@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Windows.Media;
 
 namespace ProgressivePercussion
 {
    public interface IRudiment
    {
-      string StickingPattern { get; }
+      string RudimentName { get; }
       string TargetSkill { get; }
+      ImageSource RudimentImage { get; }
    }
 }
