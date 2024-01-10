@@ -16,7 +16,7 @@ namespace ProgressivePercussion.Models
 
          try
          {
-            if (Directory.Exists(BEGINNERPATH))
+            if (Directory.Exists( BEGINNERPATH ))
             {
                string[] rudimentFolders = Directory.GetDirectories( BEGINNERPATH );
 

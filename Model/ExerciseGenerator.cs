@@ -1,9 +1,6 @@
 ﻿using ProgressivePercussion.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace ProgressivePercussion
 {
