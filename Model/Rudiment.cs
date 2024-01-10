@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace ProgressivePercussion
 {
-   public class Rudiment : IRudiment, INotifyPropertyChanged
+   public class Rudiment : IRudiment
    {
       private string _rudimentName;
       private string _targetSkill;
@@ -26,7 +26,5 @@ namespace ProgressivePercussion
       public string TargetSkill => _targetSkill;
 
       public ImageSource RudimentImage => _rudimentImage;
-
-      public event PropertyChangedEventHandler PropertyChanged;
    }
 }

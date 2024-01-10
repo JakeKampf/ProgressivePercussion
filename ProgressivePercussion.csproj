@@ -7,14 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Resources\NewFolder\**" />
     <Compile Remove="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\**" />
+    <EmbeddedResource Remove="Resources\NewFolder\**" />
     <EmbeddedResource Remove="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\**" />
+    <None Remove="Resources\NewFolder\**" />
     <None Remove="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\**" />
+    <Page Remove="Resources\NewFolder\**" />
     <Page Remove="Resources\Rudiments\BeginnerRudiments\SingleStrokeRoll\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Resources\Rudiments\BeginnerRudiments\Double Stroke Roll\Double Stroke Roll.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>

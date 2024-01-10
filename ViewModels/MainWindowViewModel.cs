@@ -26,7 +26,6 @@ namespace ProgressivePercussion.ViewModels
 
          NextExerciseCommand = new RelayCommand( ExecuteNextExerciseCommand, CanExecuteNextExerciseCommand );
          PreviousExerciseCommand = new RelayCommand( ExecutePreviousExerciseCommand, CanExecutePreviousExerciseCommand );
-
       }
 
       public string ExerciseName => _exercise.ExerciseName;
