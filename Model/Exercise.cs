@@ -23,7 +23,11 @@ namespace ProgressivePercussion
 
       public string ExerciseName => _exerciseName;
 
-      public int ExerciseTempo => _tempo;
+      public int ExerciseTempo
+      {
+         get => _tempo;
+         set => _tempo = value;
+      }
 
       public int NumberOfMeasures => _numberOfMeasures;
    }

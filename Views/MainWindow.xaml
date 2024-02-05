@@ -10,7 +10,6 @@
       <local:MainWindowViewModel/>
    </Window.DataContext>
    <Window.Resources>
-      <!-- Style for the Complementary Button -->
       <Style x:Key="InfoButtonStyle" TargetType="Button">
          <Setter Property="Background" Value="#3E637F"/>
          <Setter Property="Foreground" Value="White"/>
@@ -91,8 +90,17 @@
       <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
          <Button Content="{Binding ExerciseName}" 
                     Style="{StaticResource InfoButtonStyle}"/>
-         <Button Content="{Binding ExerciseTempo}"
-                    Style="{StaticResource InfoButtonStyle}"/>
+         <Button Content="{Binding IncreaseTempoLabel}"
+                 Style="{StaticResource InfoButtonStyle}"
+                 Command="{Binding IncreaseTempoCommand}"/>
+         <TextBox   Text="{Binding ExerciseTempo, Mode=OneWay}"
+                    Foreground="White"
+                    Background="#3E637F"
+                    FontFamily="Segoe UI"
+                    FontWeight="Bold"/>
+         <Button Content="{Binding DecreaseTempoLabel}"
+                 Style="{StaticResource InfoButtonStyle}"
+                 Command="{Binding DecreaseTempoCommand}"/>
          <Button Content="{Binding NumberOfMeasures}"
                     Style="{StaticResource InfoButtonStyle}"/>
       </StackPanel>

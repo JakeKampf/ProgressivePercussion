@@ -40,11 +40,7 @@ namespace ProgressivePercussion.Models
 
       private IRudiment AssembleRudiment( string path )
       {
-         if ( !Directory.Exists(path) )
-         {
-            return null;
-         }
-         else
+         if ( Directory.Exists(path) )
          {
             string rudimentName = Path.GetFileName(path);
 
@@ -56,6 +52,10 @@ namespace ProgressivePercussion.Models
             rudimentImage.EndInit();
 
             return new Rudiment(rudimentName, "Basics", rudimentImage);
+         }
+         else
+         {
+            return null;
          }
       }
    }
