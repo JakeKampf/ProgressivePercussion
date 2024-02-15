@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
 
 namespace ProgressivePercussion.Interfaces
 {
@@ -8,7 +6,7 @@ namespace ProgressivePercussion.Interfaces
    { 
       public int BeatsPerMinute { get; set; }
       public bool ShouldRunMetronome { get; set; }
-      public void StartMetronome();
+      public Task StartMetronome();
       public void StopMetronome();
-   }
+    }
 }

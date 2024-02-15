@@ -8,7 +8,7 @@ namespace ProgressivePercussion.Models
 {
    public class RudimentReader : IRudimentReader
    {
-      private const string BEGINNERPATH = "C://Users//jacob//source//repos//ProgressivePercussion//Resources//Rudiments//BeginnerRudiments";
+      private const string BEGINNERPATH = "C://Users//jake.kampf//source//repos//ProgressivePercussion//Resources//Rudiments//BeginnerRudiments";
 
       public List<IRudiment> ReadInRudiments()
       {
